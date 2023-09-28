@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Navbar from "./components/Navbar"; 
+import SideBar from "./components/SideBar"; 
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
 
 function App() {
+  const [ToggleSideBar, setToggleSideBar] = useState(true);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <div id="layoutSidenav">
+          <div id="layoutSidenav_content">
+            <Navbar
+              setToggleSideBar={setToggleSideBar}
+              ToggleSideBar={ToggleSideBar}
+            />
+          </div>
+        </div>
+        <div className={`${ToggleSideBar ? "d-flex " : "d-block "}`}>
+          <SideBar ToggleSideBar={ToggleSideBar} />
+            <Routes>
+              <Route path="/" element={<Home />}/>
+              <Route path="/login" element={<><Login /></>}/>
+              <Route path="/register" element={<><Register/></>}/>
+            </Routes>
+        </div>
+      </Router>
+    </>
   );
 }
 
