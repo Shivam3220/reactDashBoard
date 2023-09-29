@@ -1,10 +1,15 @@
 import React from 'react'
 import {BsList, BsSearch,BsFillPersonFill } from 'react-icons/bs';
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux'
+import { userLoggingOut} from '../ReduxActions/UserLogged'
 
 const Navbar = (props) => {
 
    const {setToggleSideBar, ToggleSideBar}= props
+   const name = useSelector((state) => state.user.name)
+   const dispatch = useDispatch()
+   const navigate = useNavigate()
 
   return (
     <>
@@ -26,10 +31,10 @@ const Navbar = (props) => {
                 <li className="nav-item dropdown">
                     <a className="nav-link dropdown-toggle" id="navbarDropdown" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false"><BsFillPersonFill fill='white'/></a>
                     <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><Link  className="dropdown-item" to="/login">Log In</Link></li>
+                        <li><Link  className="dropdown-item" to="/profile">{name}</Link></li>
                         {/* <li><Link className="dropdown-item" to="/">Activity Log</Link></li> */}
                         <li><hr className="dropdown-divider" /></li>
-                        <li><Link className="dropdown-item" to="/">Logout</Link></li>
+                        <li><button className="dropdown-item" onClick={()=>{dispatch(userLoggingOut());navigate("/login")}}>Logout</button></li>
                     </ul>
                 </li>
             </ul>

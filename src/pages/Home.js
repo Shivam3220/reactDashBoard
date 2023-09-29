@@ -4,6 +4,7 @@ import React from 'react'
 import {AiOutlineAreaChart } from 'react-icons/ai';
 import {FaChartBar, FaTable } from 'react-icons/fa';
 import DashTable from '../components/DashTable';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -37,7 +38,7 @@ const Home = () => {
                                 </div>
                             </div>
                         </div>
-                       <DashTable/>
+                       {/* <DashTable/> */}
                     </div>
                 </main>
                 <footer className="py-4 bg-light mt-auto">
@@ -45,9 +46,9 @@ const Home = () => {
                         <div className="d-flex align-items-center justify-content-between small">
                             <div className="text-muted">Copyright &copy; Your Website 2023</div>
                             <div>
-                                <a href="/" className='mx-2'>Privacy Policy</a>
+                                <Link href="/" className='mx-2'>Privacy Policy</Link>
                                 &middot;
-                                <a href="/" className='mx-2'>Terms &amp; Conditions</a>
+                                <Link href="/" className='mx-2'>Terms &amp; Conditions</Link>
                             </div>
                         </div>
                     </div>

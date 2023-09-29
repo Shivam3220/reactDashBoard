@@ -19,14 +19,14 @@ const SideBar = (props) => {
       >
         <div className="sb-sidenav-menu">
           <div className="nav">
-            <div className="sb-sidenav-menu-heading">Core</div>
+            {/* <div className="sb-sidenav-menu-heading">Core</div> */}
             <Link className="nav-link" to="/">
               <div className="sb-nav-link-icon">
                 <RiDashboard3Line/>
               </div>
               Dashboard
             </Link>
-            <div className="sb-sidenav-menu-heading">Interface</div>
+            {/* <div className="sb-sidenav-menu-heading">Interface</div> */}
             <button
               className="nav-link collapsed"
               data-bs-toggle="collapse"
@@ -50,12 +50,12 @@ const SideBar = (props) => {
               data-bs-parent="#sidenavAccordion"
             >
               <nav className="sb-sidenav-menu-nested nav">
-                <a className="nav-link" href="/staticNav">
+                <Link className="nav-link" to="/expense">
                   Expense
-                </a>
-                <a className="nav-link" href="/lightStatic">
+                </Link>
+                <Link className="nav-link" to="/income">
                   Income
-                </a>
+                </Link>
               </nav>
             </div>
             <button
@@ -81,22 +81,22 @@ const SideBar = (props) => {
               data-bs-parent="#sidenavAccordion"
             >
               <nav className="sb-sidenav-menu-nested nav">
-                <a className="nav-link" href="/staticNav">
+                <Link className="nav-link" to="/buget-expense">
                   Expense
-                </a>
-                <a className="nav-link" href="/lightStatic">
+                </Link>
+                <Link className="nav-link" to="/buget-income">
                   Income
-                </a>
+                </Link>
               </nav>
             </div>
             
-            <div className="sb-sidenav-menu-heading">Addons</div>
-            <a className="nav-link" href="/charts">
+            {/* <div className="sb-sidenav-menu-heading">Addons</div> */}
+            <Link className="nav-link" to="/charts">
               <div className="sb-nav-link-icon">
                 <FaChartBar/>
               </div>
               Charts
-            </a>
+            </Link>
             
           </div>
         </div>
